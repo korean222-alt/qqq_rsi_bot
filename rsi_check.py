@@ -15,7 +15,8 @@ def load_state():
 
 def save_state(state):
     with open(STATE_FILE, "w") as f:
-        json.dump(state, f, indent=2)
+        json.dump(state, f, indent=2, default=str)
+
 
 def within_cooldown(last_alert_date, days=14):
     if last_alert_date is None:
